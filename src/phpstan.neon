@@ -1,0 +1,23 @@
+parameters:
+    level: 6
+    paths:
+        - ./fuel/app
+        - ./fuel/packages        # 独自パッケージ用
+    excludePaths:
+        # Composerで管理されているパッケージを除外
+        - ./fuel/core
+        - ./fuel/vendor
+        - ./fuel/packages/auth
+        - ./fuel/packages/email
+        - ./fuel/packages/oil
+        - ./fuel/packages/orm
+        - ./fuel/packages/parser
+        # すべてのviewsディレクトリを除外
+        - */views/*
+        - */*/views/*
+        - */*/*/views/*
+    ignoreErrors:
+        # FuelPHPフレームワーク特有のマジックメソッドを無視
+        - '#Access to an undefined property#'
+    bootstrapFiles:
+        - phpstan-bootstrap.php
