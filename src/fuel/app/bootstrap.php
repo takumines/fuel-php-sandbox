@@ -32,4 +32,4 @@ require COREPATH.'bootstrap.php';
 Fuel::$env = Arr::get($_SERVER, 'FUEL_ENV', Arr::get($_ENV, 'FUEL_ENV', getenv('FUEL_ENV') ?: Fuel::DEVELOPMENT));
 
 // Initialize the framework with the config file.
-\Fuel::init('config.php');
+Fuel::init('config.php');

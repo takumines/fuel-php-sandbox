@@ -26,21 +26,22 @@ namespace Fuel\Tasks;
 
 class Robots
 {
-	/**
-	 * This method gets ran when a valid method name is not used in the command.
-	 *
-	 * Usage (from command line):
-	 *
-	 * php oil r robots
-	 *
-	 * or
-	 *
-	 * php oil r robots "Kill all Mice"
-	 *
-	 * @return string
-	 */
-	public static function run($speech = null)
-	{
+    /**
+     * This method gets ran when a valid method name is not used in the command.
+     *
+     * Usage (from command line):
+     *
+     * php oil r robots
+     *
+     * or
+     *
+     * php oil r robots "Kill all Mice"
+     *
+     * @param string|null $speech
+     * @return string
+     */
+	public static function run(?string $speech): string
+    {
 		if ( ! isset($speech))
 		{
 			$speech = 'KILL ALL HUMANS!';

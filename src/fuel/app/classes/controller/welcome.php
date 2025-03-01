@@ -10,6 +10,8 @@
  * @link       https://fuelphp.com
  */
 
+use Fuel\Core\Controller;
+
 /**
  * The Welcome Controller.
  *
@@ -17,7 +19,6 @@
  * response body and status.
  *
  * @package  app
- * @extends  Controller
  */
 class Controller_Welcome extends Controller
 {

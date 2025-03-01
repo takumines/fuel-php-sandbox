@@ -10,11 +10,12 @@
  * @link       https://fuelphp.com
  */
 
+use Fuel\Core\Presenter;
+
 /**
  * The welcome hello presenter.
  *
  * @package  app
- * @extends  Presenter
  */
 class Presenter_Welcome_Hello extends Presenter
 {
@@ -24,8 +25,8 @@ class Presenter_Welcome_Hello extends Presenter
 	 *
 	 * @return void
 	 */
-	public function view()
-	{
+	public function view(): void
+    {
 		$this->name = $this->request()->param('name', 'World');
 	}
 }

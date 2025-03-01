@@ -16,7 +16,8 @@
         "fuelphp/upload": "2.0.7"
     },
     "require-dev": {
-        "fuel/docs": "dev-1.9/develop"
+        "fuel/docs": "dev-1.9/develop",
+        "phpstan/phpstan": "^2.1"
     },
     "suggest": {
         "dwoo/dwoo" : "Allow Dwoo templating with the Parser package",
@@ -42,6 +43,9 @@
     "scripts": {
         "post-install-cmd": [
             "php oil r install"
+        ],
+        "phpstan": [
+            "@php -d memory_limit=1G ./fuel/vendor/bin/phpstan analyse -c phpstan.neon"
         ]
     },
     "minimum-stability": "stable"

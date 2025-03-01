@@ -10,11 +10,12 @@
  * @link       https://fuelphp.com
  */
 
+use Fuel\Core\Presenter;
+
 /**
  * The welcome 404 presenter.
  *
  * @package  app
- * @extends  Presenter
  */
 class Presenter_Welcome_404 extends Presenter
 {
