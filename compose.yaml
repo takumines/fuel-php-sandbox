@@ -10,7 +10,7 @@ services:
     environment:
       - DB_HOST=db
       - DB_PORT=3306
-      - DB_DATABASE=laravel
+      - DB_DATABASE=fuel_db
       - DB_USERNAME=phper
       - DB_PASSWORD=secret
     depends_on:
@@ -37,7 +37,7 @@ services:
     volumes:
       - db-store:/var/lib/mysql
     environment:
-      - MYSQL_DATABASE=laravel
+      - MYSQL_DATABASE=fuel_db
       - MYSQL_USER=phper
       - MYSQL_PASSWORD=secret
       - MYSQL_ROOT_PASSWORD=secret
