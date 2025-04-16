@@ -58,11 +58,14 @@ class Controller_Auth extends Controller_Template
             return View::forge('auth/register', ['errors' => $valid->error()]);
         }
 
-        // 新規登録が成功した場合はログイン画面にリダイレクト
-        Session::set_flash('success_message', 'ユーザーの新規作成に成功しました。');
+        // ログインに失敗したらログイン画面に遷移させる
+        if (!$auth->login($data['username'], $data['password'])) {
+            return View::forge('auth/login', ['errors' => $valid->error()]);
+        }
 
-        // TODO: ログイン処理を追加し、記事一覧画面に遷移させる
-        return View::forge('auth/login', ['errors' => $valid->error()]);
+        // ログインに成功したら記事一覧画面に遷移させる
+        Session::set_flash('success_message', 'ユーザー登録が完了しました。');
+        Response::redirect('articles');
 	}
 
     /**
@@ -72,8 +75,34 @@ class Controller_Auth extends Controller_Template
     {
         $valid = Validation_Auth_Login::forge();
 
-        return View::forge('auth/login', ['errors' => $valid->error()]);
+        if (Input::method() !== 'POST') {
+            return View::forge('auth/login', ['errors' => $valid->error()]);
+        }
 
-        // TODO: ログイン処理を追加する
+        if (!$valid->run()) {
+            Session::set_flash('error_message', '入力に誤りがあります。');
+
+            return View::forge('auth/login', ['errors' => $valid->error()]);
+        }
+
+        $data = $valid->validated();
+
+        // ログインに失敗したらエラーメッセージを表示
+        if (!Auth::login($data['username'], $data['password'])) {
+            Session::set_flash('error_message', 'ログインに失敗しました。');
+
+            return View::forge('auth/login', ['errors' => $valid->error()]);
+        }
+
+        Response::redirect('articles');
+    }
+
+    /**
+     * @return void
+     */
+    public function action_logout(): void
+    {
+        Auth::logout();
+        Response::redirect('auth/login');
     }
 }
