@@ -14,7 +14,7 @@ class Create_articles
                 'id'          => ['type' => 'int', 'auto_increment' => true, 'unsigned' => true],
                 'title'       => ['type' => 'varchar', 'constraint' => 255],
                 'body'        => ['type' => 'text'],
-                'user_id'     => ['type' => 'int', 'unsigned' => true],
+                'user_id'     => ['type' => 'int'],
                 'created_at'  => ['type' => 'int'],
                 'updated_at'  => ['type' => 'int'],
             ],

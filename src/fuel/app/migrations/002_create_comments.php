@@ -13,7 +13,7 @@ class Create_comments
             [
                 'id'          => ['type' => 'int', 'auto_increment' => true, 'unsigned' => true],
                 'article_id'  => ['type' => 'int', 'unsigned' => true],
-                'user_id'     => ['type' => 'int', 'null' => true, 'unsigned' => true],
+                'user_id'     => ['type' => 'int', 'null' => true],
                 'body'        => ['type' => 'text'],
                 'created_at'  => ['type' => 'int'],
             ],
