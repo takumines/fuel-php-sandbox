@@ -8,6 +8,7 @@
 
 <div class="form" style="max-width: 500px; margin: 0 auto; padding: 20px; border: 1px solid #ccc; border-radius: 8px;">
     <?= Form::open(['action' => 'auth/login', 'method' => 'post']) ?>
+    <?= Form::csrf(); ?>
 
     <div style="margin-bottom: 15px;">
         <?= Form::label('メールアドレス', 'email') ?><br>
