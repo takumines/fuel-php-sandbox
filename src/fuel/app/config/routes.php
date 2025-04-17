@@ -48,4 +48,6 @@ return array(
      */
     'logout' => 'auth/logout',
     'articles' => 'article/index',
+    'articles/create' => 'article/create',
+    'articles/view/(:num)' => 'article/view/$1',
 );
