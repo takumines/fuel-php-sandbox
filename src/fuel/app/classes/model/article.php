@@ -1,6 +1,8 @@
 <?php
 
-class Model_Article extends \Orm\Model
+use Orm\Model;
+
+class Model_Article extends Model
 {
 	protected static array $_properties = [
         'id',
@@ -38,6 +40,11 @@ class Model_Article extends \Orm\Model
     ];
 
 	protected static array $_belongs_to = [
-        'user'
+        'user' => [
+            'model_to' => 'Auth\Model\Auth_User',
+            'key_from' => 'user_id',
+            'key_to'   => 'id',
+            'cascade_delete' => false,
+        ]
     ];
 }
